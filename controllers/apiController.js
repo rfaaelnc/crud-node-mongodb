@@ -19,13 +19,22 @@ exports.add = function (req, res, next) {
 };
 
 // TODO: update of point interest
-exports.update = function (req, res) {
-  res.send({type: 'PUT'});
+exports.update = function (req, res, next) {
+  // res.send({type: 'PUT'});
+  PI.findByIdAndUpdate({_id: req.params.id}, req.body).then(() => {
+    PI.findOne({_id: req.params.id}).then((pi) => {
+      res.send(pi);
+    });
+  }).catch(next);
+
 };
 
 // TODO: delete of point interest
-exports.delete = function (req, res) {
-  res.send({type: 'DELETE'});
+exports.delete = function (req, res, next) {
+  // res.send({type: 'DELETE'});
+  PI.findByIdAndRemove({_id: req.params.id}).then((pi) => {
+    res.send(pi);
+  }).catch(next);
 };
 
 
