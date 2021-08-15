@@ -11,13 +11,11 @@ exports.details = function (req, res) {
 };
 
 // TODO: add new point of interest
-exports.add = function (req, res) {
-  
+exports.add = function (req, res, next) {
   // CREATE
   PI.create(req.body).then(function(pi){
     res.send(pi);
-  });
-
+  }).catch(next);
 };
 
 // TODO: update of point interest
