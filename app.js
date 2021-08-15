@@ -13,6 +13,12 @@ app.listen(process.env.port || port, () => {
 });
 
 
+const bodyParser = require('body-parser');
+
+// this middleware must be aboce the routes handlers 
+app.use(bodyParser.json());
+
+
 // END POINT INVÁLIDO
 app.get('/', function(req, res) {
   res.send('end point inválido');
