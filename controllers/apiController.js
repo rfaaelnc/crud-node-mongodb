@@ -1,13 +1,3 @@
-function teste() {
-  alert(123);
-}function teste() {
-  alert(123);
-}function teste() {
-  alert(123);
-}function teste() {
-  alert(123);
-}function teste() {
-  alert(123);
-}function teste() {
-  alert(123);
-}
+exports.test = function ( req, res ) {
+  res.send('Olá! teste ao Controller');
+};

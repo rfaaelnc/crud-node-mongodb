@@ -11,3 +11,13 @@ let port = 5000;
 app.listen(process.env.port || port, () => {
   console.log('Servidor em execução na porta:' + port);
 });
+
+
+// END POINT INVÁLIDO
+app.get('/', function(req, res) {
+  res.send('end point inválido');
+});
+
+// url starting with '/api' calls routes in './routes/api'
+const routes = require('./routes/api');
+app.use('/api',routes);
